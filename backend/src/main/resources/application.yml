@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: finance-dashboard
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/finance?reWriteBatchedInserts=true}
+    username: ${DB_USER:finance}
+    password: ${DB_PASSWORD:finance}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  flyway:
+    locations: classpath:db/migration
+
+finance:
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173}
+
+server:
+  port: 8080
